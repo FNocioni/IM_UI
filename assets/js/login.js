@@ -1,7 +1,5 @@
 var loginForm = document.getElementById("login_form");
 
-var firstName = document.getElementById("first_name");
-var lastName = document.getElementById("last_name");
 var email = document.getElementById("email");
 var password = document.getElementById("password");
 var submitButton = document.getElementById("submit_button");
@@ -14,36 +12,29 @@ loginForm.addEventListener('input', function() {
     submitButton.disabled = isSubmitDisabled();
 });
 
-axios.get('http://localhost:8080/passenger')
-    .then(response => {
-        const responseData = response.data
-        console.log(responseData);
-}).catch(error => { });
-
 
 async function login (){
     
     var data = {
         params: {
-            'firstName': firstName.value,
-            'lastName': lastName.value,
             'email': email.value,
             'password': password.value
         }
     }
 
     try {
-        const result = await axios.post('http://localhost:8080/passenger', null, data);
+        const result = await axios.post('http://localhost:8080/user/login', null, data);
     }catch (error) {
         if(error.code == "ERR_NETWORK"){
             alert("Could not connect to login server");
         }
         console.log(error);
+        alert(error.response.data);
 
         return;
     }
 
-    alert("Successfully created account");
+    alert("Successfully Logged In!");
 }
 
 function validatePassword(){
@@ -77,5 +68,5 @@ function validateEmail(){
 }
 
 function isSubmitDisabled(){
-    return (!firstName.value || !lastName.value || !validateEmail() || !validatePassword());
+    return (!validateEmail() || !validatePassword());
 }
