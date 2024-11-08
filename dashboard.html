@@ -36,8 +36,8 @@
 			<div class="card text-center mb-3" style="width: 24rem;">
 				<div class="card-body">
 					<h5 class="card-title">Savings Goal</h5>
-					<p class="card-text">Put chart here later.</p>
-					<a href="#" class="btn btn-outline-info">View Savings</a>
+					<canvas id="savingsChart" style="width:100%;max-width:600px"></canvas>
+					<a href="investing.html" class="btn btn-outline-info">View Savings</a>
 				</div>
 			</div>
 		</div>
@@ -45,17 +45,19 @@
 	<div class="col-4">
 		<div class="card-group mx-3">
 			<div class="card text-center mb-3" style="width: 24rem;">
-				<div class="card-body">
+				<div class="card-body text-success">
 					<h5 class="card-title">Investment Income</h5>
-					<p class="card-text">Put amount here later.</p>
-					<a href="#" class="btn btn-outline-info">Investments</a>
+					<p class="card-text fs-2">+$254.25</p>
+					<p class="card-text"><small class="text-body-secondary">Over last month</small></p>
+					<a href="investing.html" class="btn btn-outline-info">Investments</a>
 				</div>
 			</div>
 			<div class="card text-center mb-3" style="width: 24rem;">
-				<div class="card-body">
+				<div class="card-body text-danger">
 					<h5 class="card-title">Outstanding Debt</h5>
-					<p class="card-text">Put amount here later.</p>
-					<a href="#" class="btn btn-outline-info">Debt Tracker</a>
+					<p class="card-text fs-2">-$1076.32</p>
+					<p class="card-text"><small class="text-body-secondary">Over last month</small></p>
+					<a href="investing.html" class="btn btn-outline-info">Debt Tracker</a>
 				</div>
 			</div>
 		</div>
@@ -67,8 +69,8 @@
 			<div class="card text-center mb-3" style="width: 24rem;">
 				<div class="card-body">
 					<h5 class="card-title">Monthly Spending</h5>
-					<p class="card-text">Put graph here later.</p>
-					<a href="#" class="btn btn-outline-info">Spending Breakdown</a>
+					<canvas id="spendingChart" style="width:100%;max-width:600px"></canvas>
+					<a href="spending.html" class="btn btn-outline-info">Spending Breakdown</a>
 				</div>
 			</div>
 		</div>
@@ -76,15 +78,62 @@
 	<div class="col-4">
 		<div class="card-group mx-3">
 			<div class="card text-center mb-3" style="width: 24rem;">
-				<div class="card-body">
+				<div class="card-body text-warning">
 					<h5 class="card-title">Credit Score</h5>
-					<p class="card-text">Put visual here later.</p>
-					<a href="#" class="btn btn-outline-info">Details</a>
+					<p class="card-text fs-1">673</p>
+					<a href="spending.html" class="btn btn-outline-info">Details</a>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+</script>
+
+<script>
+	const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+	const spendingValues = [7500, 8000, 7600, 7200, 7300, 8200, 8300, 7100, 6900, 7200, 7400, 8500];
+	new Chart("spendingChart", {
+		type: "line",
+		data: {
+			labels: months,
+			datasets: [{
+			 	data: spendingValues,
+			 	label: "Total Spending",
+			 	borderColor: 'rgba(20, 100, 20, 1.0)',
+			 	lineTension: 0.0,
+			 	fill: false
+			}]
+		},
+	  	options: {
+			title: {
+				display: true,
+		 		text: "Monthly Expenses"
+			}
+	 	},
+	});
+	const savingsValues = [7500, 8000, 7600, 7200, 7300, 8200, 8300, 7100, 6900, 7200, 7400, 8500];
+	new Chart("savingsChart", {
+		type: "line",
+		data: {
+			labels: months,
+			datasets: [{
+			 	data: savingsValues,
+			 	label: "Total Savings",
+			 	borderColor: 'rgba(20, 100, 20, 1.0)',
+			 	lineTension: 0.0,
+			 	fill: false
+			}]
+		},
+	  	options: {
+			title: {
+				display: true,
+		 		text: "Monthly Savings"
+			}
+	 	},
+	});
+</script>
 
 </body>
 </html>

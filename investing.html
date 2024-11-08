@@ -35,7 +35,7 @@
 			<div class="card text-center mb-3" style="width: 24rem;">
 				<div class="card-body">
 					<h5 class="card-title">Total Assets</h5>
-					<p class="card-text">Put graph here later.</p>
+					<canvas id="valueChart" style="width:100%;max-width:600px"></canvas>
 				</div>
 			</div>
 		</div>
@@ -81,5 +81,33 @@
 		</div>
 	</div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+</script>
+
+<script>
+	const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+	const assetValues = [7500, 8000, 7600, 7200, 7300, 8200, 8300, 7100, 6900, 7200, 7400, 8500];
+	new Chart("valueChart", {
+		type: "line",
+		data: {
+			labels: months,
+			datasets: [{
+			 	data: assetValues,
+			 	label: "Total Value",
+			 	borderColor: 'rgba(20, 100, 20, 1.0)',
+			 	lineTension: 0.0,
+			 	fill: false
+			}]
+		},
+	  	options: {
+			title: {
+				display: true,
+		 		text: "Monthly Expenses"
+			}
+	 	},
+	});
+</script>
+
 </body>
 </html>
