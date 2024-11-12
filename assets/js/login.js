@@ -35,6 +35,8 @@ async function login (){
     }
 
     alert("Successfully Logged In!");
+    window.location.href = "dashboard.html";
+    localStorage.setItem("user", email.value);
 }
 
 function validatePassword(){
