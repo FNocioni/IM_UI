@@ -35,7 +35,7 @@
 			<div class="card text-center mb-3" style="width: 24rem;">
 				<div class="card-body">
 					<h5 class="card-title">Spending Breakdown</h5>
-					<p class="card-text">Put chart here later.</p>
+					<canvas id="breakdownChart" style="width:100%;max-width:600px"></canvas>
 				</div>
 			</div>
 		</div>
@@ -45,7 +45,13 @@
 			<div class="card text-center mb-3" style="width: 24rem;">
 				<div class="card-body">
 					<h5 class="card-title">Discounts</h5>
-					<p class="card-text">Put list here later.</p>
+					<ul class="list-group">
+						<li class="list-group-item">An item</li>
+						<li class="list-group-item">A second item</li>
+						<li class="list-group-item">A third item</li>
+						<li class="list-group-item">A fourth item</li>
+						<li class="list-group-item">And a fifth one</li>
+					</ul>
 				</div>
 			</div>
 		</div>
@@ -57,7 +63,13 @@
 			<div class="card text-center mb-3" style="width: 24rem;">
 				<div class="card-body">
 					<h5 class="card-title">Transactions</h5>
-					<p class="card-text">Put list here later.</p>
+					<ul class="list-group">
+						<li class="list-group-item">An item</li>
+						<li class="list-group-item">A second item</li>
+						<li class="list-group-item">A third item</li>
+						<li class="list-group-item">A fourth item</li>
+						<li class="list-group-item">And a fifth one</li>
+					</ul>
 				</div>
 			</div>
 		</div>
@@ -67,11 +79,42 @@
 			<div class="card text-center mb-3" style="width: 24rem;">
 				<div class="card-body">
 					<h5 class="card-title">Upcoming Bills</h5>
-					<p class="card-text">Put list here later.</p>
+					<ul class="list-group">
+						<li class="list-group-item">An item</li>
+						<li class="list-group-item">A second item</li>
+						<li class="list-group-item">A third item</li>
+						<li class="list-group-item">A fourth item</li>
+						<li class="list-group-item">And a fifth one</li>
+					</ul>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+</script>
+
+<script>
+	const breakdownValues = [21, 43, 11, 25];
+	new Chart("breakdownChart", {
+		type: "pie",
+		data: {
+			labels: ["Groceries", "Shopping", "Utilities", "Transportation"],
+			datasets: [{
+				data: breakdownValues,
+				backgroundColor: ['rgba(100, 100, 100, 1.0)','rgba(200, 100, 100, 1.0)','rgba(100, 100, 200, 1.0)','rgba(100, 200, 100, 1.0)'],
+				borderColor: 'rgba(40, 40, 40, 1.0)',
+			}]
+		},
+		options: {
+			title: {
+				display: true,
+				text: "Spending Breakdown"
+			}
+		},
+	});
+
+</script>
 </body>
 </html>
