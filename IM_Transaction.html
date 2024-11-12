@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<!--To start HTTP Server: python -m http.server 5000-->
+
+<html>
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="assets/css/materialize.css" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="assets/css/index.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <style>
+        /* Custom style to lower the footer */
+        footer {
+            margin-top: 50px; /* Adjust this value to move the footer lower */
+            background-color: #f44336; /* Assuming the red color you want */
+        }
+    </style>
+</head>
+
+<body class="background" background="assets/images/background.png">
+
+<div class="transaction">
+    <div class="col s12" id="transaction_form">
+        <img src="assets/images/logo2.png" width="300" height="300" style="display: block; margin-left: auto; margin-right: auto;">
+
+        <div class="row">
+            <div class="input-field col s6">
+                <input id="first_name_on_card" type="text" class="validate">
+                <label for="first_name_on_card">First Name on Card</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="last_name_on_card" type="text" class="validate">
+                <label for="last_name_on_card">Last Name on Card</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="address" type="text" class="validate">
+                <label for="address">Address</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s4">
+                <input id="city" type="text" class="validate">
+                <label for="city">City</label>
+            </div>
+            <div class="input-field col s4">
+                <input id="state" type="text" class="validate">
+                <label for="state">State</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s4">
+                <input id="zip" type="text" class="validate">
+                <label for="zip">Zipcode</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="card_number" type="text" class="validate">
+                <label for="card_number">Card Number</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s6">
+                <input id="cvc" type="text" class="validate">
+                <label for="cvc">CVC</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="expiration_date" type="text" class="validate" placeholder="MM/YY">
+                <label for="expiration_date">Exp. Date</label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12">
+                <label>
+                    <input type="checkbox" id="save_info" />
+                    <span>Save Info for Future Payments</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s6 offset-s3" style="justify-content: center; display: flex;">
+                <button class="btn waves-effect waves-light" id="submit_button" type="submit" onclick="processTransaction()">Submit
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--JavaScript at end of body for optimized loading-->
+<script type="text/javascript" src="assets/js/materialize.js"></script>
+<script type="text/javascript" src="assets/js/index.js
